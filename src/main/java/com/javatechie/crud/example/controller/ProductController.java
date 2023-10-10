@@ -12,6 +12,8 @@ import com.javatechie.crud.example.repository.moviesDAO;
 import com.javatechie.crud.example.repository.studentDAO;
 import com.javatechie.crud.example.service.ProductService;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -37,9 +39,12 @@ public class ProductController {
 
 	@Autowired
 	private addressDAO addressDAO;
+	
+	public   Logger LOGGER=LoggerFactory.getLogger(ProductController.class);
 
 	@PostMapping("/addProduct")
 	public Product addProduct(@RequestBody Product product) {
+		LOGGER.info("jenil patel declared");
 		return service.saveProduct(product);
 	}
 
