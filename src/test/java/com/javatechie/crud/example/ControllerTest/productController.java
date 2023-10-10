@@ -51,7 +51,7 @@ public class productController {
 		Product product=new Product(2, "cell phone",10, 200000);
 		Mockito.when(productRepository.findById(anyInt())).thenReturn(Optional.of(product));
 		
-		
+		System.out.println("JENIL");
 		mockMvc.perform(get("/productById/2"))
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.name").value("cell phone"));
